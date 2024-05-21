@@ -1,0 +1,13 @@
+.iframe{
+    width: 100%;
+    height: 100%;
+}
+
+.custom{
+    margin-top: 9em;
+}
+
+.editor{
+    background-color: black;
+    color: white;
+}
