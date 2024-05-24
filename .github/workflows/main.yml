@@ -1,4 +1,4 @@
-name: CI Pipeline for Main Branch
+name: CI Pipeline for Main Branchs
 
 on:
   push:
