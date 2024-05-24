@@ -1,0 +1,69 @@
+ame: CI Pipeline for Dev Branch
+
+on:
+  push:
+    branches:
+      - dev
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  build-frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+      working-directory: ./frontend
+
+    - name: Run tests
+      run: npm test
+      working-directory: ./frontend
+
+    - name: Build frontend
+      run: npm run build
+      working-directory: ./frontend
+
+  build-backend:
+    runs-on: ubuntu-latest
+    needs: build-frontend
+
+    services:
+      postgres:
+        image: postgres:latest
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: Vishnu@123
+          POSTGRES_DB: codenest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: '17'
+
+    - name: Install dependencies
+      run: ./mvnw install
+      working-directory: ./backend
+
+    - name: Run tests
+      run: ./mvnw test
+      working-directory: ./backend
+
+    - name: Build backend
+      run: ./mvnw package
+      working-directory: ./backend
