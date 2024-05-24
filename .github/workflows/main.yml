@@ -1,4 +1,4 @@
-name: CI Pipeline for Main Branchs
+name: CI Pipeline for Main Branches
 
 on:
   push:
@@ -63,6 +63,9 @@ jobs:
         server-id: 'github'
         server-username: ${{ github.actor }}
         server-password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Generate Maven wrapper
+      run: mvn -N io.takari:maven:wrapper
 
     - name: Install dependencies
       run: ./mvnw install
