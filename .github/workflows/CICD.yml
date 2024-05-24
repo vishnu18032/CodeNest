@@ -1,4 +1,4 @@
-ame: CI Pipeline for Dev Branch
+name: CI Pipeline for Dev Branches
 
 on:
   push:
