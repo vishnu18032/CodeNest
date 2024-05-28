@@ -13,8 +13,8 @@ public class ContestServiceImpl implements ContestService {
 
     private final ContestRepository contestRepository;
 
-    @Autowired
-    private ContestService contestService;
+    // @Autowired
+    // private ContestService contestService;
 
 
     @Autowired
