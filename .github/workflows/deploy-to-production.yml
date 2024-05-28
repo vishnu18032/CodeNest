@@ -17,9 +17,10 @@ jobs:
 
       - name: Deploy to Production
         run: |
-          git config --global user.email "actions@example.com"
-          git config --global user.name "GitHub Actions"
-          git checkout production
+          git config --global user.email "jadhavvishnu666@gmail.com"
+          git config --global user.name "Vishnu"
+
+          git checkout deploy-to-production
           git merge main --no-edit
           # Add commands to deploy both frontend and backend applications
-          git push origin production
+          git push origin deploy-to-production
