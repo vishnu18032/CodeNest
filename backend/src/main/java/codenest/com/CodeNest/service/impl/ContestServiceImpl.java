@@ -13,6 +13,7 @@ public class ContestServiceImpl implements ContestService {
 
     private final ContestRepository contestRepository;
 
+    //It is causing error that is circular error which i have used in the controller and service code 
     // @Autowired
     // private ContestService contestService;
 
