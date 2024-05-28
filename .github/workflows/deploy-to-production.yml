@@ -19,7 +19,6 @@ jobs:
         run: |
           git config --global user.email "jadhavvishnu666@gmail.com"
           git config --global user.name "Vishnu"
-          git checkout deploy-to-production  # Replace with your deployment branch name
+          git checkout deploy-to-production  
           git merge main --no-edit
-          # Add commands to deploy both frontend and backend applications
-          git push origin deploy-to-production  # Replace with your deployment branch name
+          git push origin deploy-to-production  
