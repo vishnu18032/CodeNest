@@ -1,0 +1,25 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Add steps to build and test both frontend and backend applications
+
+      - name: Deploy to Production
+        run: |
+          git config --global user.email "actions@example.com"
+          git config --global user.name "GitHub Actions"
+          git checkout production
+          git merge main --no-edit
+          # Add commands to deploy both frontend and backend applications
+          git push origin production
